@@ -5,64 +5,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora de Letras — Anita Miró Ceramics</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-–cream: #faf5ee;
-–warm-white: #fffcf7;
-–blush: #f2e8df;
-–terracota: #c4714a;
-–ink: #1e1810;
-–ink-soft: #6b5b4e;
-–border: #e5d9cc;
+–rosa-fondo: #fdf0f3;
+–rosa-claro: #fce4ea;
+–rosa-medio: #f2b8c6;
+–rosa-fuerte: #e8849a;
+–rosa-texto: #c4566e;
+–negro: #1e1810;
+–gris: #6b5b4e;
+–borde: #f0cdd6;
+–blanco: #ffffff;
 –wa-green: #25D366;
 }
 
 body {
-background: var(–cream);
-font-family: ‘Jost’, sans-serif;
-color: var(–ink);
+background: var(–rosa-fondo);
+font-family: ‘Nunito Sans’, sans-serif;
+color: var(–negro);
 min-height: 100vh;
 padding: 2.5rem 1rem 5rem;
 }
 
 .container { max-width: 660px; margin: 0 auto; }
 
-/* HEADER */
-header { text-align: center; margin-bottom: 3rem; }
+header { text-align: center; margin-bottom: 2.5rem; }
 
 .brand-tag {
-font-size: 0.68rem;
-font-weight: 500;
-letter-spacing: 0.25em;
+font-size: 0.7rem;
+font-weight: 700;
+letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–terracota);
+color: var(–rosa-texto);
 display: block;
-margin-bottom: 0.8rem;
+margin-bottom: 0.6rem;
 }
 
 header h1 {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2.2rem, 7vw, 3.2rem);
-font-weight: 300;
-color: var(–ink);
-line-height: 1.1;
+font-family: ‘Nunito Sans’, sans-serif;
+font-size: clamp(1.8rem, 6vw, 2.6rem);
+font-weight: 800;
+color: var(–negro);
+line-height: 1.15;
 }
 
 header h1 em {
-font-style: italic;
-font-weight: 400;
-color: var(–terracota);
+font-style: normal;
+color: var(–rosa-texto);
 }
 
 header p {
-margin-top: 0.8rem;
-color: var(–ink-soft);
-font-size: 0.85rem;
-font-weight: 300;
-letter-spacing: 0.02em;
+margin-top: 0.6rem;
+color: var(–gris);
+font-size: 0.88rem;
+font-weight: 400;
 }
 
 .ornament {
@@ -70,53 +69,52 @@ display: flex;
 align-items: center;
 justify-content: center;
 gap: 0.8rem;
-margin: 1.2rem auto;
+margin: 1rem auto;
 }
 .ornament::before, .ornament::after {
 content: ‘’;
 display: block;
-width: 50px;
+width: 48px;
 height: 1px;
-background: var(–border);
+background: var(–rosa-medio);
 }
 .ornament-dot {
-width: 5px; height: 5px;
+width: 6px; height: 6px;
 border-radius: 50%;
-background: var(–terracota);
-opacity: 0.5;
+background: var(–rosa-fuerte);
 }
 
-/* STEP LABEL */
 .step-label {
-font-size: 0.62rem;
-font-weight: 500;
-letter-spacing: 0.2em;
+font-size: 0.65rem;
+font-weight: 700;
+letter-spacing: 0.18em;
 text-transform: uppercase;
-color: var(–terracota);
+color: var(–rosa-texto);
 margin-bottom: 1rem;
 display: flex;
 align-items: center;
 gap: 0.5rem;
 }
 .step-num {
-width: 20px; height: 20px;
+width: 22px; height: 22px;
 border-radius: 50%;
-border: 1px solid var(–terracota);
+background: var(–rosa-medio);
+color: var(–rosa-texto);
 display: flex; align-items: center; justify-content: center;
-font-size: 0.6rem;
+font-size: 0.65rem;
+font-weight: 800;
 flex-shrink: 0;
 }
 
-/* CARDS */
 .card {
-background: var(–warm-white);
-border: 1px solid var(–border);
-border-radius: 4px;
+background: var(–blanco);
+border: 1.5px solid var(–borde);
+border-radius: 20px;
 padding: 1.8rem;
 margin-bottom: 1rem;
+box-shadow: 0 2px 12px rgba(232, 132, 154, 0.08);
 }
 
-/* TAMAÑO */
 .size-options {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -124,67 +122,66 @@ gap: 0.8rem;
 }
 
 .size-btn {
-border: 1px solid var(–border);
-background: white;
-border-radius: 4px;
+border: 1.5px solid var(–borde);
+background: var(–rosa-fondo);
+border-radius: 16px;
 padding: 1.2rem;
 cursor: pointer;
 transition: all 0.2s;
 text-align: left;
-font-family: ‘Jost’, sans-serif;
+font-family: ‘Nunito Sans’, sans-serif;
 position: relative;
 }
-.size-btn:hover { border-color: var(–terracota); }
-.size-btn.active { border-color: var(–terracota); background: #fdf6f0; }
+.size-btn:hover { border-color: var(–rosa-fuerte); background: var(–rosa-claro); }
+.size-btn.active { border-color: var(–rosa-fuerte); background: var(–rosa-claro); }
 .size-btn.active::after {
 content: ‘✓’;
 position: absolute;
 top: 0.7rem; right: 0.9rem;
-font-size: 0.75rem;
-color: var(–terracota);
+font-size: 0.8rem;
+color: var(–rosa-fuerte);
+font-weight: 800;
 }
 .size-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-font-weight: 400;
+font-size: 1rem;
+font-weight: 700;
 display: block;
-color: var(–ink);
+color: var(–negro);
 }
 .size-detail {
 font-size: 0.75rem;
-color: var(–ink-soft);
+color: var(–gris);
 display: block;
 margin-top: 0.2rem;
-font-weight: 300;
+font-weight: 400;
 }
 .size-price {
-font-size: 0.8rem;
-font-weight: 500;
-color: var(–terracota);
+font-size: 0.82rem;
+font-weight: 700;
+color: var(–rosa-texto);
 display: block;
 margin-top: 0.5rem;
 }
 
-/* WORD INPUT */
 .word-input {
 width: 100%;
 border: none;
-border-bottom: 2px solid var(–terracota);
+border-bottom: 2.5px solid var(–rosa-medio);
 padding: 0.8rem 0.2rem;
 font-size: 2rem;
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-letter-spacing: 0.25em;
+font-family: ‘Nunito Sans’, sans-serif;
+font-weight: 800;
+letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–ink);
+color: var(–negro);
 background: transparent;
 outline: none;
 transition: border-color 0.2s;
 }
-.word-input:focus { border-bottom-color: var(–ink); }
+.word-input:focus { border-bottom-color: var(–rosa-fuerte); }
 .word-input::placeholder {
-color: var(–border);
-font-style: italic;
+color: var(–borde);
+font-weight: 400;
 font-size: 1.5rem;
 letter-spacing: 0.1em;
 }
@@ -193,10 +190,9 @@ display: flex;
 justify-content: space-between;
 margin-top: 0.6rem;
 }
-.input-hint { font-size: 0.75rem; color: var(–ink-soft); font-weight: 300; }
-.char-count  { font-size: 0.75rem; color: var(–terracota); }
+.input-hint { font-size: 0.75rem; color: var(–gris); }
+.char-count  { font-size: 0.75rem; color: var(–rosa-texto); font-weight: 700; }
 
-/* LETRAS GRID */
 .letters-grid {
 display: flex;
 flex-wrap: wrap;
@@ -218,47 +214,46 @@ to   { transform: scale(1)   translateY(0);   opacity: 1; }
 }
 
 .letter-bubble {
-width: 52px; height: 52px;
+width: 54px; height: 54px;
 border-radius: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.4rem;
-font-weight: 600;
+font-family: ‘Nunito Sans’, sans-serif;
+font-size: 1.3rem;
+font-weight: 800;
 color: white;
-text-shadow: 0 1px 3px rgba(0,0,0,0.28);
+text-shadow: 0 1px 3px rgba(0,0,0,0.22);
 cursor: pointer;
 transition: transform 0.15s, box-shadow 0.15s;
 border: 3px solid transparent;
 }
 .letter-bubble:hover {
 transform: scale(1.1);
-box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 .letter-bubble.no-color {
-background: var(–blush) !important;
-color: var(–ink-soft);
-border: 2px dashed var(–border);
+background: var(–rosa-claro) !important;
+color: var(–rosa-texto);
+border: 2px dashed var(–rosa-medio);
 text-shadow: none;
 }
-.letter-bubble.has-color { box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
-.letter-bubble.light-bubble { color: var(–ink); text-shadow: none; }
+.letter-bubble.has-color { box-shadow: 0 3px 10px rgba(0,0,0,0.18); }
+.letter-bubble.light-bubble { color: var(–negro); text-shadow: none; }
 
 .letter-name {
-font-size: 0.58rem;
-color: var(–ink-soft);
+font-size: 0.6rem;
+color: var(–gris);
 text-align: center;
 max-width: 60px;
 line-height: 1.3;
-font-weight: 300;
+font-weight: 600;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
 }
-.letter-name.pending { color: var(–border); font-style: italic; }
+.letter-name.pending { color: var(–borde); }
 
-/* COLOR POPUP */
 .color-popup {
 display: none;
 position: absolute;
@@ -266,28 +261,29 @@ bottom: calc(100% + 10px);
 left: 50%;
 transform: translateX(-50%);
 background: white;
-border: 1px solid var(–border);
-border-radius: 4px;
-padding: 0.9rem;
-box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+border: 1.5px solid var(–borde);
+border-radius: 16px;
+padding: 1rem;
+box-shadow: 0 12px 32px rgba(232, 132, 154, 0.18);
 z-index: 200;
-width: 224px;
+width: 228px;
 }
 .color-popup.open { display: block; }
 
 .popup-title {
-font-size: 0.62rem;
-letter-spacing: 0.15em;
+font-size: 0.65rem;
+font-weight: 700;
+letter-spacing: 0.12em;
 text-transform: uppercase;
-color: var(–ink-soft);
-margin-bottom: 0.7rem;
+color: var(–gris);
+margin-bottom: 0.8rem;
 text-align: center;
 }
 
 .swatches-grid {
 display: grid;
 grid-template-columns: repeat(5, 1fr);
-gap: 0.4rem;
+gap: 0.45rem;
 justify-items: center;
 }
 
@@ -299,8 +295,8 @@ transition: transform 0.15s, box-shadow 0.1s;
 position: relative;
 border: 2px solid rgba(0,0,0,0.06);
 }
-.color-swatch:hover { transform: scale(1.18); box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
-.color-swatch.selected { border-color: var(–ink) !important; }
+.color-swatch:hover { transform: scale(1.2); box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+.color-swatch.selected { border-color: var(–negro) !important; }
 .color-swatch.selected::after {
 content: ‘✓’;
 position: absolute;
@@ -308,35 +304,35 @@ top: 50%; left: 50%;
 transform: translate(-50%, -50%);
 color: white;
 font-size: 0.75rem;
-font-weight: bold;
+font-weight: 800;
 text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
-.color-swatch.light-swatch.selected::after { color: var(–ink); text-shadow: none; }
+.color-swatch.light-swatch.selected::after { color: var(–negro); text-shadow: none; }
 
 .swatch-tooltip {
-font-size: 0.62rem;
+font-size: 0.65rem;
 text-align: center;
-color: var(–ink-soft);
-margin-top: 0.5rem;
+color: var(–gris);
+margin-top: 0.6rem;
 min-height: 1rem;
-font-style: italic;
+font-weight: 600;
 }
 
-/* SUMMARY */
 .summary-card {
-background: var(–ink);
+background: var(–negro);
 color: white;
-border-radius: 4px;
+border-radius: 20px;
 padding: 2rem;
 margin-top: 1rem;
 }
 .summary-heading {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.4rem;
-font-weight: 300;
-font-style: italic;
-color: rgba(255,255,255,0.5);
+font-size: 1rem;
+font-weight: 700;
+color: rgba(255,255,255,0.4);
 margin-bottom: 1.4rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+font-size: 0.7rem;
 }
 .summary-row {
 display: flex;
@@ -344,60 +340,62 @@ justify-content: space-between;
 align-items: center;
 padding: 0.5rem 0;
 border-bottom: 1px solid rgba(255,255,255,0.07);
-font-size: 0.83rem;
+font-size: 0.85rem;
 }
-.summary-row .lbl { color: rgba(255,255,255,0.4); font-weight: 300; }
+.summary-row .lbl { color: rgba(255,255,255,0.4); font-weight: 400; }
+.summary-row .val { font-weight: 600; }
 
 .total-block {
 margin-top: 1.2rem;
 padding-top: 1.2rem;
-border-top: 1px solid rgba(255,255,255,0.18);
+border-top: 1px solid rgba(255,255,255,0.15);
 display: flex;
 justify-content: space-between;
 align-items: flex-end;
 }
 .total-lbl {
 font-size: 0.62rem;
-letter-spacing: 0.2em;
+letter-spacing: 0.18em;
 text-transform: uppercase;
 color: rgba(255,255,255,0.3);
+font-weight: 700;
 }
 .total-price {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2.5rem;
-font-weight: 300;
+font-family: ‘Nunito Sans’, sans-serif;
+font-size: 2.4rem;
+font-weight: 800;
 line-height: 1;
 text-align: right;
 }
 .transfer-note {
-font-size: 0.72rem;
+font-size: 0.75rem;
 color: rgba(255,255,255,0.3);
 margin-top: 0.3rem;
 text-align: right;
-font-weight: 300;
 }
-.transfer-note strong { color: #a8d4a8; font-weight: 400; }
+.transfer-note strong { color: #a8d4a8; font-weight: 700; }
 
-/* LEGEND */
 .legend {
 margin-top: 1.3rem;
 padding-top: 1.1rem;
 border-top: 1px solid rgba(255,255,255,0.07);
 }
 .legend-title {
-font-size: 0.58rem;
-letter-spacing: 0.2em;
+font-size: 0.6rem;
+letter-spacing: 0.18em;
 text-transform: uppercase;
 color: rgba(255,255,255,0.22);
 margin-bottom: 0.6rem;
+font-weight: 700;
 }
 .legend-items { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
 .legend-item {
 display: flex;
 align-items: center;
 gap: 0.35rem;
-font-size: 0.73rem;
+font-size: 0.75rem;
 color: rgba(255,255,255,0.55);
+font-weight: 600;
 }
 .legend-dot {
 width: 12px; height: 12px;
@@ -406,23 +404,22 @@ flex-shrink: 0;
 border: 1px solid rgba(255,255,255,0.12);
 }
 
-/* WA BUTTON */
 .wa-btn {
 display: flex;
 align-items: center;
 justify-content: center;
 gap: 0.7rem;
 width: 100%;
-margin-top: 1.2rem;
+margin-top: 1.4rem;
 padding: 1rem 1.5rem;
 background: var(–wa-green);
 color: white;
 border: none;
-border-radius: 4px;
-font-family: ‘Jost’, sans-serif;
-font-size: 0.88rem;
-font-weight: 500;
-letter-spacing: 0.06em;
+border-radius: 50px;
+font-family: ‘Nunito Sans’, sans-serif;
+font-size: 0.9rem;
+font-weight: 700;
+letter-spacing: 0.04em;
 cursor: pointer;
 text-decoration: none;
 transition: background 0.2s, transform 0.15s;
@@ -434,18 +431,16 @@ font-size: 0.72rem;
 color: rgba(255,255,255,0.28);
 text-align: center;
 margin-top: 0.7rem;
-font-style: italic;
 }
 
-/* OVERLAY */
 .overlay { display: none; position: fixed; inset: 0; z-index: 100; }
 .overlay.open { display: block; }
 
 @media (max-width: 420px) {
 .size-options { grid-template-columns: 1fr; }
-.letter-bubble { width: 44px; height: 44px; font-size: 1.15rem; }
+.letter-bubble { width: 46px; height: 46px; font-size: 1.1rem; }
 .color-swatch { width: 28px; height: 28px; }
-.color-popup { width: 196px; }
+.color-popup { width: 200px; }
 }
 </style>
 
@@ -458,12 +453,10 @@ font-style: italic;
 
   <header>
     <span class="brand-tag">Anita Miró Ceramics</span>
-    <h1>Calculá tus <em>letras</em></h1>
+    <h1>Calculá tus <em>letras</em> 🌸</h1>
     <div class="ornament"><div class="ornament-dot"></div></div>
     <p>Elegí el tamaño, escribí tu palabra y seleccioná el color de cada letra</p>
   </header>
-
-  <!-- PASO 1 -->
 
   <div class="card">
     <div class="step-label"><span class="step-num">1</span> Tamaño</div>
@@ -480,8 +473,6 @@ font-style: italic;
       </button>
     </div>
   </div>
-
-  <!-- PASO 2 -->
 
   <div class="card">
     <div class="step-label"><span class="step-num">2</span> Nombre o palabra</div>
@@ -502,14 +493,10 @@ font-style: italic;
     </div>
   </div>
 
-  <!-- PASO 3 -->
-
   <div class="card" id="colorCard" style="display:none">
     <div class="step-label"><span class="step-num">3</span> Color de cada letra</div>
     <div class="letters-grid" id="lettersGrid"></div>
   </div>
-
-  <!-- RESUMEN -->
 
   <div class="summary-card" id="summaryCard" style="display:none">
     <div class="summary-heading">Resumen del pedido</div>
@@ -535,7 +522,6 @@ font-style: italic;
 </div>
 
 <script>
-// ─── PALETA REAL — Anita Miró Abril 2026 ──────────────────
 const COLORS = [
   { id: 'rosa-fuerte',    label: 'Rosa Fuerte',    hex: '#d4687a', light: false },
   { id: 'rojo-navidad',   label: 'Rojo Navidad',   hex: '#c0272d', light: false },
@@ -558,13 +544,11 @@ const COLORS = [
   { id: 'crudo-mate',     label: 'Crudo Mate',     hex: '#e8dfc8', light: true  },
 ];
 
-// ─── ESTADO ───────────────────────────────────────────────
 let currentWord  = '';
 let letterColors = {};
 let pricePerLetter = 36750;
 let sizeName = 'Bubble Original · 12 cm';
 
-// ─── TAMAÑO ───────────────────────────────────────────────
 function selectSize(btn, price, name) {
   document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -573,12 +557,10 @@ function selectSize(btn, price, name) {
   updateSummary();
 }
 
-// ─── INPUT ────────────────────────────────────────────────
 function handleInput(val) {
   currentWord = val.toUpperCase().replace(/[^A-ZÁÉÍÓÚÜÑ ]/gi, '');
   document.getElementById('wordInput').value = currentWord;
   document.getElementById('charCount').textContent = currentWord.replace(/ /g, '').length;
-
   const newColors = {};
   for (let i = 0; i < currentWord.length; i++) {
     if (letterColors[i]) newColors[i] = letterColors[i];
@@ -587,9 +569,8 @@ function handleInput(val) {
   render();
 }
 
-// ─── RENDER LETRAS ────────────────────────────────────────
 function render() {
-  const colorCard  = document.getElementById('colorCard');
+  const colorCard   = document.getElementById('colorCard');
   const summaryCard = document.getElementById('summaryCard');
   const grid = document.getElementById('lettersGrid');
   const letters = currentWord.split('');
@@ -647,7 +628,6 @@ function render() {
   updateSummary();
 }
 
-// ─── POPUP ────────────────────────────────────────────────
 function togglePopup(e, idx) {
   e.stopPropagation();
   const popup   = document.getElementById(`popup-${idx}`);
@@ -678,7 +658,6 @@ function clearTooltip(idx) {
   if (el) el.textContent = '';
 }
 
-// ─── RESUMEN ──────────────────────────────────────────────
 function updateSummary() {
   const summaryCard = document.getElementById('summaryCard');
   const letters = currentWord.replace(/ /g, '').split('').filter(Boolean);
@@ -708,7 +687,6 @@ function updateSummary() {
     </div>
   `;
 
-  // leyenda
   const assignments = [];
   currentWord.split('').forEach((char, i) => {
     if (char !== ' ' && letterColors[i]) {
@@ -730,7 +708,6 @@ function updateSummary() {
     legendEl.style.display = 'none';
   }
 
-  // pending
   const pending = letters.length - Object.keys(letterColors).length;
   document.getElementById('pendingWarn').innerHTML = pending > 0
     ? `<p class="pending-warn">Falta elegir color para ${pending} letra${pending > 1 ? 's' : ''}</p>`
