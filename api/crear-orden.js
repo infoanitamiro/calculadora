@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', 'https://infoanitamiro.github.io');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -20,23 +20,4 @@ export default async function handler(req, res) {
   try {
     const response = await fetch(`https://api.tiendanube.com/v1/${storeId}/draft_orders`, {
       method: 'POST',
-      headers: {
-        'Authentication': `bearer ${token}`,
-        'Content-Type': 'application/json',
-        'User-Agent': 'AnitaMiroCeramics (infoanitamiro@gmail.com)'
-      },
-      body: JSON.stringify({
-        products: [{
-          variant_id: variantId,
-          quantity: cantidad,
-          price: precio
-        }],
-        note: `Palabra: ${palabra} | Tamaño: ${tamano} | Colores: ${colores}${notas ? ' | Notas: ' + notas : ''}`
-      })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error('Error Tiendanube:', data);
-      return res.status(500).json({ erro
+      headers:
