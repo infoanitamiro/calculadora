@@ -9,12 +9,11 @@ module.exports = async function handler(req, res) {
   const { palabra, tamano, colores, cantidad, precio, notas } = req.body;
 
   const storeId = '3574246';
-  
-const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
-  
+  const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
+
   const VARIANTS = {
     '12cm': 1514494601,
-    '8cm':  1382196474
+    '8cm': 1382196474
   };
   const variantId = VARIANTS[tamano] || 1514494601;
 
@@ -26,17 +25,17 @@ const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
         'Content-Type': 'application/json',
         'User-Agent': 'AnitaMiroCeramics (infoanitamiro@gmail.com)'
       },
- body: JSON.stringify({
-  contact_email: 'infoanitamiro@gmail.com',
-  contact_name: 'Cliente',
-  contact_lastname: 'Simulador',
-  products: [{
-    variant_id: variantId,
-    quantity: cantidad,
-    price: precio
-  }],
-  note: `Palabra: ${palabra} | Tamaño: ${tamano} | Colores: ${colores}${notas ? ' | Notas: ' + notas : ''}`
-})
+      body: JSON.stringify({
+        contact_email: 'infoanitamiro@gmail.com',
+        contact_name: 'Cliente',
+        contact_lastname: 'Simulador',
+        products: [{
+          variant_id: variantId,
+          quantity: cantidad,
+          price: precio
+        }],
+        note: `Palabra: ${palabra} | Tamaño: ${tamano} | Colores: ${colores}${notas ? ' | Notas: ' + notas : ''}`
+      })
     });
 
     const data = await response.json();
@@ -52,4 +51,4 @@ const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
     console.error('Error:', error);
     return res.status(500).json({ error: 'Error interno del servidor' });
   }
-}
+};
