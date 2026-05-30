@@ -9,8 +9,9 @@ module.exports = async function handler(req, res) {
   const { palabra, tamano, colores, cantidad, precio, notas } = req.body;
 
   const storeId = '3574246';
-  const token = '00585bcfd8cbc6db471d006d72a1ac8c30b6c96d';
-
+  
+const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
+  
   const VARIANTS = {
     '12cm': 1514494601,
     '8cm':  1382196474
