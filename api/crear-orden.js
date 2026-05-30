@@ -26,13 +26,17 @@ const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
         'Content-Type': 'application/json',
         'User-Agent': 'AnitaMiroCeramics (infoanitamiro@gmail.com)'
       },
-    body: JSON.stringify({
+   body: JSON.stringify({
   contact_email: 'infoanitamiro@gmail.com',
+  contact_name: 'Cliente',
+  contact_lastname: 'Simulador',
   products: [{
     variant_id: variantId,
     quantity: cantidad,
     price: precio
   }],
+  note: `Palabra: ${palabra} | Tamaño: ${tamano} | Colores: ${colores}${notas ? ' | Notas: ' + notas : ''}`
+})
   note: `Palabra: ${palabra} | Tamaño: ${tamano} | Colores: ${colores}${notas ? ' | Notas: ' + notas : ''}`
 })
     });
