@@ -166,6 +166,20 @@
   .wa-btn:hover { background: #1ebc58; transform: scale(1.01); }
   .wa-icon { width: 24px; height: 24px; }
 
+  /* BOTÓN PAGAR ONLINE */
+  .pagar-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--negro); color: white;
+    border: none; border-radius: 14px;
+    padding: 18px 24px; width: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px; font-weight: 800;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.18s, transform 0.1s;
+  }
+  .pagar-btn:hover { background: #333; transform: scale(1.01); }
+  .pagar-btn:disabled { background: #999; cursor: not-allowed; transform: none; }
+
   /* BADGE descuento */
   .discount-badge {
     display: inline-block; background: #FFF3CD;
@@ -301,6 +315,9 @@
       </svg>
       Enviar pedido por WhatsApp
     </a>
+    <button class="pagar-btn" id="pagar-btn" onclick="pagarOnline()">
+      💳 Pagar online
+    </button>
   </div>
 
 </div>
@@ -1154,6 +1171,58 @@ ${currentNotes.trim() ? `\n\n📌 Notas: ${currentNotes.trim()}` : ''}\n\n¿Pod�
 
 // Inicializar
 updateSummary();
+
+// ===== PAGAR ONLINE =====
+async function pagarOnline() {
+  const availChars = word.split('').filter(c => isAvailable(c));
+  if (availChars.length === 0) return;
+
+  const btn = document.getElementById('pagar-btn');
+  btn.textContent = 'Procesando...';
+  btn.disabled = true;
+
+  const sizeName = currentSize === 'original' ? '12cm' : '8cm';
+  const pricePerUnit = PRICES[currentSize];
+
+  const coloresResumen = availChars.map((ch, idx) => {
+    let realIdx = -1, count = 0;
+    for (let i = 0; i < word.length; i++) {
+      if (isAvailable(word[i])) {
+        if (count === idx) { realIdx = i; break; }
+        count++;
+      }
+    }
+    const color = letterColors[realIdx] || DEFAULT_COLOR;
+    return `${ch}:${color}`;
+  }).join(', ');
+
+  try {
+    const res = await fetch('https://calculadora-iota-smoky.vercel.app/api/crear-orden', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        palabra: word,
+        tamano: sizeName,
+        colores: coloresResumen,
+        cantidad: availChars.length,
+        precio: pricePerUnit,
+        notas: currentNotes.trim()
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.checkoutUrl) {
+      window.location.href = data.checkoutUrl;
+    } else {
+      throw new Error(data.error || 'Error desconocido');
+    }
+  } catch (err) {
+    alert('Hubo un error al procesar el pago. Intentá de nuevo o escribinos por WhatsApp.');
+    btn.textContent = '💳 Pagar online';
+    btn.disabled = false;
+  }
+}
 </script>
 
 </body>
