@@ -10,10 +10,11 @@ export default async function handler(req, res) {
         code: req.query.code || ''
       })
     });
-
     const data = await response.json();
-    return res.status(200).json(data);
-
+    
+    // Redirigir al admin de partners después de la instalación
+    return res.redirect(302, 'https://partners.tiendanube.com');
+    
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
