@@ -8,6 +8,10 @@
     
     if (!target) return;
 
+    // Ocultar el botón nativo de Tienda Nube
+    var formRow = target.closest('.form-row') || target.parentNode;
+    if (formRow) formRow.style.display = 'none';
+
     var wrapper = document.createElement('div');
     wrapper.style.cssText = 'margin-bottom: 16px;';
     
@@ -17,10 +21,10 @@
     boton.target = '_blank';
     boton.rel = 'noopener noreferrer';
     boton.innerText = 'Visualizar mis letras y comprar';
-    boton.style.cssText = 'display:block;width:100%;background:#1A1A1A;color:#fff;border-radius:14px;padding:18px 24px;font-family:"Nunito Sans",sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-decoration:none;text-align:center;letter-spacing:0.02em;box-sizing:border-box;';
+    boton.style.cssText = 'display:block;width:100%;background:#1A1A1A;color:#fff;border-radius:50px;padding:18px 24px;font-family:"Nunito Sans",sans-serif;font-size:16px;font-weight:800;cursor:pointer;text-decoration:none;text-align:center;letter-spacing:0.02em;box-sizing:border-box;';
     
     wrapper.appendChild(boton);
-    target.parentNode.insertBefore(wrapper, target);
+    target.parentNode.insertBefore(wrapper, target.parentNode.firstChild);
   }
 
   insertarBoton();
