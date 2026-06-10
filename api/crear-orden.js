@@ -6,7 +6,7 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método no permitido' });
   const { palabra, tamano, colores, cantidad, precio, notas } = req.body;
   const storeId = '3574246';
-  const token = 'd5ce6768f10971742950595cdb2cfd1a89a7f499';
+  const token = process.env.TIENDANUBE_ACCESS_TOKEN ;
   const VARIANTS = {
     '12cm': 1514494601,
     '8cm': 1382196474
