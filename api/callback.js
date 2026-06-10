@@ -11,10 +11,12 @@ export default async function handler(req, res) {
       })
     });
     const data = await response.json();
-    
-    // Redirigir al admin de partners después de la instalación
-    return res.redirect(302, 'https://partners.tiendanube.com');
-    
+    // Mostrar el token en pantalla
+    return res.status(200).send(`
+      <h1>Token obtenido</h1>
+      <p><strong>access_token:</strong> ${data.access_token}</p>
+      <p><strong>user_id:</strong> ${data.user_id}</p>
+    `);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
