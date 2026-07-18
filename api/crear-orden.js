@@ -50,6 +50,8 @@ module.exports = async function handler(req, res) {
       };
     }
 
+    console.log('ENVIANDO A TIENDANUBE:', JSON.stringify(orderBody.shipping));
+
     const response = await fetch(`https://api.tiendanube.com/v1/${storeId}/draft_orders`, {
       method: 'POST',
       headers: {
@@ -58,16 +60,3 @@ module.exports = async function handler(req, res) {
         'User-Agent': 'AnitaMiroCeramics (infoanitamiro@gmail.com)'
       },
       body: JSON.stringify(orderBody)
-    });
-
-    const data = await response.json();
-    if (!response.ok) {
-      console.error('Error Tiendanube:', data);
-      return res.status(500).json({ error: 'Error al crear la orden', detalle: data });
-    }
-    return res.status(200).json({ checkoutUrl: data.abandoned_checkout_url });
-  } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ error: 'Error interno del servidor' });
-  }
-};
