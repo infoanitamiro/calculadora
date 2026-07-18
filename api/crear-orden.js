@@ -60,3 +60,26 @@ module.exports = async function handler(req, res) {
         'User-Agent': 'AnitaMiroCeramics (infoanitamiro@gmail.com)'
       },
       body: JSON.stringify(orderBody)
+    });
+
+    const data = await response.json();
+
+    console.log('RESPUESTA TIENDANUBE - shipping fields:', JSON.stringify({
+      shipping_address: data.shipping_address,
+      shipping_city: data.shipping_city,
+      shipping_province: data.shipping_province,
+      shipping_zipcode: data.shipping_zipcode,
+      shipping_option: data.shipping_option,
+      shipping_option_code: data.shipping_option_code
+    }));
+
+    if (!response.ok) {
+      console.error('Error Tiendanube:', data);
+      return res.status(500).json({ error: 'Error al crear la orden', detalle: data });
+    }
+    return res.status(200).json({ checkoutUrl: data.abandoned_checkout_url });
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
