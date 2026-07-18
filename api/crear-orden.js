@@ -27,3 +27,47 @@ module.exports = async function handler(req, res) {
       products: [{
         variant_id: variantId,
         quantity: cantidad,
+        price: precio
+      }],
+      note: `Palabra: ${palabra} | Tamaño: ${tamano} | Colores: ${colores}${notas ? ' | Notas: ' + notas : ''}`
+    };
+
+    if (telefono) {
+      orderBody.contact_phone = telefono;
+    }
+
+    if (direccion || codigoPostal) {
+      orderBody.shipping = {
+        shipping_address: {
+          address: direccion || '',
+          number: numero || '',
+          floor: piso || '',
+          locality: localidad || '',
+          city: ciudad || '',
+          province: provincia || '',
+          zipcode: codigoPostal || ''
+        }
+      };
+    }
+
+    const response = await fetch(`https://api.tiendanube.com/v1/${storeId}/draft_orders`, {
+      method: 'POST',
+      headers: {
+        'Authentication': `bearer ${token}`,
+        'Content-Type': 'application/json',
+        'User-Agent': 'AnitaMiroCeramics (infoanitamiro@gmail.com)'
+      },
+      body: JSON.stringify(orderBody)
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      console.error('Error Tiendanube:', data);
+      return res.status(500).json({ error: 'Error al crear la orden', detalle: data });
+    }
+    return res.status(200).json({ checkoutUrl: data.abandoned_checkout_url });
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).json({ error: 'Error interno del servidor' });
+  }
+};
